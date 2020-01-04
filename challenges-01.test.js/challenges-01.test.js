@@ -14,9 +14,9 @@ const greeting = (word) => {
   return word;
 };
 
-const speaker = (message, word) => {
+const speaker = (message, callback) => {
   // Solution code here...
-  return word (message);
+  return callback (message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-  for (var i = 0; i < times; i++){
+  for (let i = 0; i < times; i++){
     callback(arr, num);
   }
   return arr;
@@ -81,10 +81,11 @@ CHALLENGE 4
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
 ------------------------------------------------------------------------------------------------ */
 
-const removeWithForEach = (arr, callback) => {
+const removeWithForEach = (arr, removeOne) => {
   // Solution code here...
+  arr.forEach((num) => {removeOne(num, arr)});
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -97,8 +98,11 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach((element, index, arr) => {
+    if (element % 3 === 2) {arr.pop();}
+  });
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
@@ -118,6 +122,11 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  availableItems.forEach((item, available) => {
+    if (available === false) {availableItems.pop();}
+    else 
+  });
+  return availableItems;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +145,9 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  // arr.forEach (divByThree, divByFive, divByBoth) => {
+  //   if divByThree
+  // }
 };
 
 /* ------------------------------------------------------------------------------------------------
