@@ -10,6 +10,8 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 
 const appendTheEnd = (str) => {
   // Solution code here...
+  let newStr = ` The end.`;
+  return str + newStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,6 +29,7 @@ console.log(a) prints [1, 2, 3, 1]
 
 const appendFirstToLast = (arr) => {
   // Solution code here...
+  arr.push(arr[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,7 +49,11 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 
 const addBirthYearProperty = (obj, year) => {
   // Solution code here...
+  obj.yearBorn = year;
 };
+
+
+// obj = object, yearBorn = key, year = value
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -63,8 +70,12 @@ console.log(people[1].isAuthor) prints true
 
 const setStatusAsAuthor = (people) => {
   // Solution code here...
+  people.forEach( (authorCheck) => {
+    authorCheck.isAuthor = true;
+  });
 };
 
+// why "isAuthor === true" wrong here? 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -82,8 +93,10 @@ console.log(a) prints [1, 2, 3, 4]
 
 const append = (arr1, arr2) => {
   // Solution code here...
-
+  arr2.push(arr1);
 };
+
+//Cannot get this to work. Would forEach append arr 2 after each index in arr1? 
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
