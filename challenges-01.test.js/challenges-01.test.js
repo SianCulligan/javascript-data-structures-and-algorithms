@@ -148,17 +148,18 @@ const fizzbuzz = (arr) => {
   // Solution code here...
   let newArr = [];
   arr.forEach ( (i) => {
-    if (i % 3 === 0) & (i % 5 === 0); {
-      newArr.push(`Fizz Buzz`)};
-    elseif (i % 3 === 0) {
-      newArr.push(`Fizz`)
-    };
-    elseif (i % 5 === 0) {
-      newArr.push(`Buzz`)
-    };
+    if (i % 15 === 0) {
+      newArr.push(`Fizz Buzz`);
+    }
+    else if (i % 3 === 0) {
+      newArr.push(`Fizz`);
+    }
+    else if (i % 5 === 0) {
+      newArr.push(`Buzz`);
+    }
     else {
-      newArr.push(i)
-    };
+      newArr.push(i);
+    }
   })
   return newArr;
 };
