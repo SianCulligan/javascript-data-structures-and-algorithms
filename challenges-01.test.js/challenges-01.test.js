@@ -68,7 +68,7 @@ const removeOne = (num, arr) => {
 
 const removeElements = (arr, callback) => {
   // Solution code here...
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     callback(arr[i], arr);
   }
   return arr;
@@ -81,9 +81,9 @@ CHALLENGE 4
 Write a function named removeWithForEach that produces the same output as challenge 3, but uses forEach.
 ------------------------------------------------------------------------------------------------ */
 
-const removeWithForEach = (arr, removeOne) => {
+const removeWithForEach = (arr, callback) => {
   // Solution code here...
-  arr.forEach((num) => {removeOne(num, arr)});
+  arr.forEach((num) => {callback(num, arr)});
   return arr;
 };
 /* ------------------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
-  let inventorylist = [];
+  const inventorylist = [];
   availableItems.forEach( (i) => {
     if ( i.available === true) {inventorylist.push(i.name)}
   })
