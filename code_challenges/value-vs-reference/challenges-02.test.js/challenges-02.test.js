@@ -93,7 +93,9 @@ console.log(a) prints [1, 2, 3, 4]
 
 const append = (arr1, arr2) => {
   // Solution code here...
-  arr2.push(arr1);
+  arr2.forEach((numb) => {
+    arr1.push(numb);
+  });
 };
 
 //Cannot get this to work. Would forEach append arr 2 after each index in arr1? 
