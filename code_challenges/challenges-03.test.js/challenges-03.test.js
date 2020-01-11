@@ -8,7 +8,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 
 const sortBackwards = (arr) => {
   // Solution code here...
-  arr.sort((a, b) =>(b - a));
+  arr.sort((a, b) => (b - a));
   return arr;
 };
 
@@ -28,6 +28,7 @@ const alphabetize = (arr) => {
   return arr;
 };
 
+//!Reference: https://www.w3schools.com/jsref/jsref_sort.asp
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -46,6 +47,8 @@ const sortByLength = (arr) => {
   return arr;
 };
 
+//!Reference: look up & study ternery
+// return arr.sort ((a,b) => a.length > b.length ? 1 : (a.length < b.length ? -1 : 0));
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -65,7 +68,10 @@ const alphabetizeBetter = (arr) => {
   });
   return arr;
 };
-/* ------------------------------------------------------------------------------------------------
+/*
+
+// Ternery
+// return arr.sort ((a,b) => a.toUpperCase > b.toUpperCase ? 1 : (a.toUpperCase < b.toUpperCase ? -1 : 0));------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function named sortByPrice that takes in an array of objects, each of which has a 'price' property, and sorts those objects by price, lowest to highest, returning the same array.
@@ -80,18 +86,21 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
-  arr.sort( (a, b) => {
-    if ((+a.price) > (+b.price)) {
-      return 1;
-    } else if ((+a.price) < (+b.price)) {
-      return -1;
-    } else { return 0; }
-  });
-  return arr;
-}
+//   arr.sort( (a, b) => {
+//     if ((+a.price) > (+b.price)) {
+//       return 1;
+//     } else if ((+a.price) < (+b.price)) {
+//       return -1;
+//     } else { return 0; }
+//   });
+//   return arr;
+// }
 
-// !Reference: https://stackoverflow.com/questions/6682997/what-is-the-purpose-of-a-plus-symbol-before-a-variable
+  // !Reference: https://stackoverflow.com/questions/6682997/what-is-the-purpose-of-a-plus-symbol-before-a-variable
 
+
+  // Ternery
+  return arr.sort ((a,b) => +a.price > +b.price ? 1 : (+a.price < +b.price ? -1 : 0)); }
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
@@ -111,6 +120,10 @@ const sortNumbersByLength = (arr) => {
   });
   return arr;
 };
+
+// Ternery
+// return arr.sort ((a,b) => +a.price > +b.price ? 1 : (+a.price < +b.price ? -1 : 0));
+/*
 
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -142,6 +155,8 @@ const sortPeople = (arr) => {
   return arr;
 };
 
+// Ternery
+// return arr.sort ((a,b) => a.lastName > b.lastName ? 1 : (a.lastName < b.lastName ? -1 : 0));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -155,7 +170,7 @@ If two people have the same full name, the younger one should come first. Do not
 
 const sortPeopleBetter = (arr) => {
   // Solution code here...
-  arr.sort((a,b) => {
+  arr.sort((a, b) => {
     if (a.lastName > b.lastName) {
       return 1;
     } else if (a.lastName < b.lastName) {
@@ -174,6 +189,10 @@ const sortPeopleBetter = (arr) => {
       }}});
   return arr;
 };
+
+// Ternery
+// return arr.sort ((a,b) => a.lastName > b.lastName ? 1 : (a.lastName < b.lastName ? -1 : (a.lastName === b.lastName ? (a.firstName > b.firstName ? 1 : (a.firstName < b.firstName ? -1 : (a.firstName === b.firstName ? (a.age > b.age ? -1 : (a.age < b.age ? -1 : 0))))))))
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -198,6 +217,7 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
+
   // Solution code here...
 };
 
