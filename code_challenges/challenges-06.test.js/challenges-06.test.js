@@ -96,17 +96,30 @@ hasChildrenValues(characters, 'Sansa') will return false
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
   let hasKids = [];
-//   arr.forEach( (fam) => {
-//     if(fam.children.length > 0) {
-//       hasKids.push(`true`);
-//     } else {
-//       hasKids.push(`false`);
-//     }
-//   })
+  //   arr.forEach( (fam) => {
+  //     if(fam.children.length > 0) {
+  //       hasKids.push(`true`);
+  //     } else {
+  //       hasKids.push(`false`);
+  //     }
+  //   })
+  //doesn't pass & doesn't take in character
 
-  return hasKids;
+  for (let i = 0; i < arr.length; i++) {
+    if (character === arr[i].name) {
+      if (arr[i].children.length === 0) {
+        // hasKids.push(false);
+        return false;
+      } else {
+        // hasKids.push(true);
+        return true;
+      }}}
 };
 
+//   return hasKids;
+// };
+
+// I can't get this test to pass while using the "hasKids" arr - can someone please explain why this passes without the array
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
