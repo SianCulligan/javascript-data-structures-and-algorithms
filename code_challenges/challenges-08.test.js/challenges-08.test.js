@@ -10,6 +10,10 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  let oddValues = arr.filter(value => {
+    return !(value % 2 === 0);
+  })
+  return oddValues;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,6 +29,15 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  let vowels = arr.filter(str => {
+    if(str.includes('a') ||
+      str.includes('e') ||
+      str.includes('i') ||
+      str.includes('o') ||
+      str.includes('u')
+    ) { return str
+    }})
+  return vowels;
 };
 
 
@@ -38,6 +51,11 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  let cantWeAllGetAlong = arr.filter(values => {
+    if(!forbiddenValues.includes(values)){
+      return values;
+    }})
+  return cantWeAllGetAlong;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,6 +99,12 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
+  let rtnArr = arr.filter(val => {
+    if(val.baseStat > minBaseStat){
+      return val;
+    }
+  })
+  return rtnArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -93,6 +117,24 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  let rtnArr = arr.filter(val => {
+    if (val.baseStat > minBaseStat) {
+      rtnArr.forEach((value, idx) => {
+        rtnArr[idx] = value.stat.name;
+      })}});
+  return rtnArr;
+
+
+
+
+
+
+//     {
+//     if(val.baseStat > minBaseStat){
+//       return val;
+//     }
+//   })
+//   return rtnArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -146,6 +188,12 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  let noKids = arr.filter (obj => {
+    if(!obj.children) {
+      return obj;
+    }
+  })
+  return noKids;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,6 +206,16 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  let newArr = arr.filter( val => {
+    if(isNaN(val)){
+      arr.pop(val);
+    } else if
+    (val % 2 === 0){
+      return 'even';
+    } else {
+      return 'odd'
+    }})
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
