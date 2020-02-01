@@ -150,29 +150,43 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
-//   let value = val.children; 
-//.filter out blanks/no kids, .reduce what's left 
-let soManyKids = arr.filter( (obj) => {
-    let onlyKids = [];  
-    if(!obj.children) {
-        onlyKids.push(obj)};
-        return onlyKids;
-    });
+  return arr.reduce( (accumulator, value) => {
+    if(value.children) {
+      accumulator += value.children.length
+      return accumulator;
+    } else {
+      return accumulator;
+    }
+  },0)
+};
 
-    // let soManyKids = arr.reduce( (acc) => {
-            // acc.children.reduce((accumulator, val) =>{
-            //     return accumulator += val.children.length;
-            // }},0);
-            // // let totals = arr.reduce((accumulator) => {
-            //     return accumulator +1;
-            //   }, 0);
-            //   return totals;
-    // 
-    // acc.push(value);
-    // return acc;
-  
-//   return soManyKids;
-// };
+
+
+//   let value = val.children;
+//.filter out blanks/no kids, .reduce what's left
+//   let soManyKids = arr.filter( (obj) => {
+//     let onlyKids = [];
+//     if(!obj.children) {
+//       onlyKids.push(obj)}
+//     return onlyKids;
+//   })
+//     soManyKids.push(onlyKids);
+
+
+
+
+// let soManyKids = arr.reduce( (acc) => {
+// acc.children.reduce((accumulator, val) =>{
+//     return accumulator += val.children.length;
+// }},0);
+// // let totals = arr.reduce((accumulator) => {
+//     return accumulator +1;
+//   }, 0);
+//   return totals;
+//
+// acc.push(value);
+// return acc;
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -184,6 +198,12 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  let arrAverage = arr.reduce((accumulator, value) => {
+    accumulator.sum += value;
+    accumulator.count++;
+    return accumulator;
+  },{ count: 0, sum: 0 })
+  return arrAverage.sum/arrAverage.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -205,7 +225,13 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  let countPrime = arr.reduce((accumulator, value) => {
+    isPrime(value) ? accumulator + 1 : accumulator, 0;
+  },0)
+  return countPrime;
 };
+
+// UGH!! How does this one work?!
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -248,6 +274,13 @@ const snorlaxData = {
 
 const extractStat = (statName, arr) => {
   // Solution code here...
+  return arr.reduce((accumulator, value) => {
+  // statName === value.stat.name
+    if(value.stat.name === statName) {
+      accumulator = value;
+    }
+    return accumulator;
+  },null);
 };
 
 /* ------------------------------------------------------------------------------------------------

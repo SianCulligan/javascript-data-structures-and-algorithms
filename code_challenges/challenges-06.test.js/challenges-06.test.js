@@ -130,6 +130,15 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    if(character === arr[i].name) {
+      if (arr[i].children.length === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -140,7 +149,9 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
-};
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i].children.length)
+  }};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal

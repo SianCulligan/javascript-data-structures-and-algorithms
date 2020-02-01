@@ -106,11 +106,11 @@ const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
   //split string, remove 1st 2, push to results & return results
-  recipe.ingredients.forEach( (ingr) => {
-    let array = ingr.split(' ').splice(0, 2);
-    result.push((array.join(' ')));
-  })
-  return result;
+  // recipe.ingredients.forEach( (ingr) => {
+  //   let array = ingr.split(' ').splice(0, 2);
+  //   result.push((array.join(' ')));
+  // })
+  // return result;
 };
 
 
@@ -126,13 +126,17 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
-  let result = [];
-  // Solution code here...
-  //split the sentence, .slice 1st word (starting at 0, taking 1), rejoin the string - return result
-  recipe.steps.forEach(step => {
-    result.push(step.split(' ').slice(0, 1).join(''));
-  });
-  return result;
+  // let result = [];
+  // // Solution code here...
+  // //split the sentence, .slice 1st word (starting at 0, taking 1), rejoin the string - return result
+  // recipe.steps.forEach(step => {
+  // //   result.push(step.split(' ').slice(0, 1).join(''));
+  // // });
+  // // return result;
+  // for (let i = 0; i < recipe.length; i++) {
+  //   let steps = recipe.steps[i].split
+  // }
+  // rescipe.
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -151,11 +155,10 @@ For example:
 const removeEvenValues = (arr) => {
   // Solution code here...
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 === 0) {
+    while (arr[i] % 2 === 0) {
       arr.splice(i, 1);
-      i--
-    }
-  }
+    }}
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -178,7 +181,16 @@ const removeLastCharacters = (str, numberOfCharacters) => {
 //if else statement taking in a name & number, number determines placement
 //Split stirng using .split to determine str length, compare that array to number array?
 //I am so confused by the wording on this question, help please?
-};
+
+
+// let result =[];
+if (str.lenght > numberOfCharacters) {
+  return str.slice(0,str.length - numberOfCharacters);
+} else if(numberOfCharacters< 0) {
+  return str.slice(0,str.length +1);
+} else {
+  return '';
+}};
 
 
 /* ------------------------------------------------------------------------------------------------
