@@ -143,9 +143,9 @@ let findMaleAndFemale = (data) => {
   return data.reduce((accumulator, value, index) => {
     if (value.gender === 'male' || value.gender === 'female') {
       if (index !== (data.length-1)) {
-        accumulator = accumulator + value.name + ' and ';
+        accumulator += value.name + ' and ';
       } else {
-        accumulator = accumulator + value.name;
+        accumulator += value.name;
       }
     }
     return value;
@@ -160,8 +160,15 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
-  const results = data.reduce((accumulator, value) => {
-    return (parseInt(accumulator.height) < parseInt(value.height) ? accumulator : value);
+  const results = data.reduce((tallestPerson, value) => {
+    // return (parseInt(accumulator.height) < parseInt(value.height) ? accumulator : value);
+    let greatestHeight = parseInt(tallestPerson.height);
+    let currentHeight = parseInt(value.height);
+    if(currentHeight > greatestHeight) {
+        return value;
+    } else { 
+        return tallestPerson;
+    }
   }, {});
   return results.name;
 };
