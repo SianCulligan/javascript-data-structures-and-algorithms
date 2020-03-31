@@ -8,7 +8,7 @@ class Node {
   }}
 
 class LinkedList {
-  constructor(head) {
+  constructor() {
     this.head = null;
   }
 
@@ -29,8 +29,9 @@ class LinkedList {
     let currentNode = this.head;
     try {
       while(currentNode !== null) {
-        console.log('Node is not null');
-        if(currentNode === searchVal) {
+        console.log('Node is not null its', currentNode.val);
+        if(currentNode.val === searchVal) {
+        //   return (console.log('true'));
           return true;
         } else {
           currentNode = currentNode.next;
@@ -38,9 +39,9 @@ class LinkedList {
       }
       if(currentNode === null) {
         console.log('Node is null');
+        // return (console.log('false'));
         return false;
       }
-
     } catch (e) {
       console.log(`Error: includes function`);
     }
@@ -48,20 +49,16 @@ class LinkedList {
 
   async toString () {
     try {
-
       console.log ('toString function');
       let currentNode = this.head;
       let str = '';
-
       while(currentNode !== null) {
         str +='[' + currentNode.val + '] ->';
         currentNode = currentNode.next;
       }
-
       str += 'null';
       console.log(str);
-
-      //{ a } -> { b } -> { c } -> NULL
+      return str;
     } catch (e) {
       console.log(`Error: toString function`);
     }
@@ -69,57 +66,17 @@ class LinkedList {
 }
 let mylist = new LinkedList();
 
-mylist.toString();
+// //insert & print to screen
+// mylist.toString();
+// mylist.insert('A');
+// mylist.toString();
+// mylist.insert('B');
+// mylist.toString();
+// mylist.insert('C');
+// mylist.toString();
 
-mylist.insert('A');
-mylist.toString();
+// //search the array, 1st should be true, 2nd false
+// mylist.includes('C');
+// mylist.includes('D');
 
-mylist.insert('B');
-mylist.toString();
-mylist.insert('C');
-mylist.toString();
-
-mylist.includes('C');
-mylist.includes('D');
-
-
-
-class DoublyLinkedList {
-  constructor(head, next, prev) {
-    this.head = head;
-    this.next = next;
-    this.prev = prev;
-  }
-
-  async insert () {
-    try {
-      console.log ('DoublyList Insert function');
-    } catch (e) {
-      console.log(`Error: DoublyList Insert function`);
-    }
-  }
-
-  async includes () {
-    try {
-      console.log ('DoublyList Includes function');
-    } catch (e) {
-      console.log(`Error: DoublyList includes function`);
-    }
-  }
-
-  async toString () {
-    try {
-      console.log ('DoublyList toString function');
-    } catch (e) {
-      console.log(`Error: DoublyList toString function`);
-    }
-  }
-}
-
-
-let thisList = new Node(2, 3, 1);
-
-
-
-
-module.exports = { Node, LinkedList, DoublyLinkedList };
+module.exports = LinkedList;
