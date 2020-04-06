@@ -9,9 +9,9 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
     testTwo.insert('3');
     testTwo.insert('2');
     testTwo.append('ONE');
-    let str = testTwo.tail.value; 
+    let str = testTwo.toString(); 
     // console.log('TEST ONE', str);
-    expect(str).toEqual('ONE');
+    expect(str).toEqual('[2] ->[3] ->[ONE] ->null');
   });
 
   it('Can add multiple nodes to the end of the linked list', () => {
@@ -22,7 +22,7 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
     testTwo.append('THREE');
     let str = testTwo.toString();
     // console.log('TEST TWO', str);
-    expect(str).toBe('[2] ->[3] ->[THREE] ->[TWO] ->null');
+    expect(str).toBe('[2] ->[3] ->[TWO] ->[THREE] ->null');
 
   });
 
@@ -34,17 +34,21 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
     testThree.insert('S');
     testThree.insert('E');
     testThree.insert('R');
-    let str = testThree.insertBefore('L', 'U');
+    testThree.insertBefore('U', 'L');
+    let str = testThree.toString();
     // console.log('TEST THREE', str);
     expect(str).toBe('[R] ->[E] ->[S] ->[U] ->[L] ->[T] ->[S] ->null');
   });
 
   it('Can insert a node before the first node of a linked list', () => {
     const testFour = new LinkedList;
+    testFour.insert('M');
     testFour.insert('A');
-    let str ='[' + testFour.head.val + '] ->' + testFour.head.next;
+    testFour.insert('E');
+    testFour.insertBefore('T', 'E');
+    let str = testFour.toString();
     // console.log('TEST FOUR', str);
-    expect(str).toBe('[A] ->null');
+    expect(str).toBe('[T] ->[E] ->[A] ->[M] ->null');
   });
 
   it('Can insert after a node in the middle of the linked list', () => {
@@ -55,7 +59,8 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
     testFive.insert('X');
     testFive.insert('N');
     testFive.insert('A');
-    let str = testFive.insertAfter('X', 'I');
+    testFive.insertAfter('I', 'X');
+    let str = testFive.toString();
     // console.log('TEST FIVE', str);
     expect(str).toBe('[A] ->[N] ->[X] ->[I] ->[E] ->[T] ->[Y] ->null');
   });
@@ -66,11 +71,10 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
     testSix.insert('K');
     testSix.insert('I');
     testSix.insert('Y');
-    let str = testSix.insertAfter('E', 'S');
+    testSix.insertAfter('S','E');
+    let str = testSix.toString();
     // console.log('TEST SIX', str);
     expect(str).toBe('[Y] ->[I] ->[K] ->[E] ->[S] ->null');
-
-
   });
 });
 
