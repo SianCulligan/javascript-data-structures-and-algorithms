@@ -102,21 +102,58 @@ class Inserts extends LinkedList {
       }
       currentNode = currentNode.next;
     }
-
     return false;
   }
+
+  kthFromEnd(k) {
+    const values = this.toStringNoChar();
+    // console.log ('In the kthFromEnd');
+    if(k >= 0 && k < values.length) {
+      // console.log ('In the IF kthFromEnd');
+      // console.log('LENGTH', values.length);
+      const fauxIndex = values.length - 1 - k;
+      // console.log ('fauxIndex', fauxIndex);
+      // console.log ('Values', values);
+      // console.log ('ANSWER', values[fauxIndex]);
+      return values[fauxIndex];
+
+    }
+    console.log('Exception');
+    return 'Exception';
+  }
+
+  toStringNoChar () {
+    try {
+      let currentNode = this.head;
+      let str = '';
+      while(currentNode !== null) {
+        str +=currentNode.val;
+        currentNode = currentNode.next;
+      }
+      console.log(str);
+      return str;
+    } catch (e) {
+      console.log(`Error: toString function`);
+    }
+  }
+
+
+
 }
 
-// let myNewList = new Inserts();
+let myNewList = new Inserts();
 
-// myNewList.insert('h');
-// myNewList.insert('u');
-// myNewList.insert('n');
-// myNewList.toString();
+myNewList.insert('2');
+myNewList.insert('8');
+myNewList.insert('3');
+myNewList.insert('1');
+myNewList.toString();
 // // myNewList.append('!!!!');
 // myNewList.insertAfter('!!!!!!', 'n');
 // myNewList.toString();
 // myNewList.insertAfter('BEFORE', 'h');
 // myNewList.toString();
+myNewList.kthFromEnd(2);
+
 
 module.exports = Inserts;

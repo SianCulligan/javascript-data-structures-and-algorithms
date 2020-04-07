@@ -9,7 +9,7 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
     testTwo.insert('3');
     testTwo.insert('2');
     testTwo.append('ONE');
-    let str = testTwo.toString(); 
+    let str = testTwo.toString();
     // console.log('TEST ONE', str);
     expect(str).toEqual('[2] ->[3] ->[ONE] ->null');
   });
@@ -78,3 +78,63 @@ describe('Tests the fuctionality of the extended Inserts class', () => {
   });
 });
 
+
+
+
+
+
+
+describe('Testing Code Challenge 7 - kth-from-end', () => {
+
+  it('Returns an exception when k is greater than the length of the linked list', () => {
+    const testSeven= new LinkedList;
+    testSeven.insert('2');
+    testSeven.insert('8');
+    testSeven.insert('3');
+    testSeven.insert('1');
+    let str = testSeven.kthFromEnd(6);
+    expect(str).toBe('Exception');
+  });
+
+  it('Where k and the length of the list are the same', () => {
+    const testEight= new LinkedList;
+    testEight.insert('2');
+    testEight.insert('8');
+    testEight.insert('3');
+    testEight.insert('1');
+    let str = testEight.kthFromEnd(4);
+    console.log('TEST EIGHT STR', str);
+    expect(str).toBe('Exception');
+  });
+
+  it('Where k is not a positive integer', () => {
+    const testNine= new LinkedList;
+    testNine.insert('2');
+    testNine.insert('8');
+    testNine.insert('3');
+    testNine.insert('1');
+    let str = testNine.kthFromEnd(-4);
+    console.log('TEST NINE STR', str);
+    expect(str).toBe('Exception');
+  });
+
+  it('Where the linked list is of a size 1', () => {
+    const testTen= new LinkedList;
+    testTen.insert('2');
+    let str = testTen.kthFromEnd(0);
+    console.log('TEST TEN STR', str);
+    expect(str).toBe('2');
+  });
+
+  it('k is not at the end, but somewhere in the middle of the linked list ', () => {
+    const testEleven= new LinkedList;
+    testEleven.insert('2');
+    testEleven.insert('8');
+    testEleven.insert('0');
+    testEleven.insert('3');
+    testEleven.insert('1');
+    let str = testEleven.kthFromEnd(2);
+    console.log('TEST Eleven STR', str);
+    expect(str).toBe('0');
+  });
+});
