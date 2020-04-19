@@ -75,7 +75,6 @@ describe('queue operations', () => {
     expect(shouldBeNull).toBe(null);
   });
 
-
   it('Can successfully empty a queue after multiple dequeues', () => {
     let myQueue = new Queue();
     myQueue.enqueue('One');
@@ -93,7 +92,6 @@ describe('queue operations', () => {
 
     listQueue = myQueue.isempty();
     expect(listQueue).toBeTruthy;
-
   });
 
   it('Calling dequeue or peek on empty queue raises exception', () => {
