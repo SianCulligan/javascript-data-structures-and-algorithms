@@ -55,13 +55,10 @@ describe('Tests the fuctionality of the linked list', () => {
   });
 
   it('checks the toString() function prints out your LinkedList in an expected way', () => {
-    let testSeven = new LinkedList;
+    let testSeven = new LinkedList();
     testSeven.insert('A');
     testSeven.insert('B');
     let str = testSeven.toString();
-    console.log('Test 7', str);
-    //Something is off with my toString function - keeps returning a Promise {}, check console log
     expect(str).toBe('[B] ->[A] ->null');
   });
-
 });

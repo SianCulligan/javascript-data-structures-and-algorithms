@@ -12,7 +12,7 @@ class LinkedList {
     this.head = null;
   }
 
-  async insert (val) {
+  insert (val) {
     try {
       console.log ('Insert function');
       let insertNode = new Node(val);
@@ -24,14 +24,13 @@ class LinkedList {
     // O(3) >> O(1)
   }
 
-  async includes (searchVal) {
+  includes (searchVal) {
     console.log ('Includes function');
     let currentNode = this.head;
     try {
       while(currentNode !== null) {
         console.log('Node is not null its', currentNode.val);
         if(currentNode.val === searchVal) {
-        //   return (console.log('true'));
           return true;
         } else {
           currentNode = currentNode.next;
@@ -39,7 +38,6 @@ class LinkedList {
       }
       if(currentNode === null) {
         console.log('Node is null');
-        // return (console.log('false'));
         return false;
       }
     } catch (e) {
@@ -47,12 +45,12 @@ class LinkedList {
     }
   }
 
-  async toString () {
+  toString () {
     try {
       console.log ('toString function');
       let currentNode = this.head;
       let str = '';
-      while(currentNode !== null) {
+      while(currentNode) {
         str +='[' + currentNode.val + '] ->';
         currentNode = currentNode.next;
       }
@@ -64,19 +62,5 @@ class LinkedList {
     }
   }
 }
-let mylist = new LinkedList();
-
-// //insert & print to screen
-// mylist.toString();
-// mylist.insert('A');
-// mylist.toString();
-// mylist.insert('B');
-// mylist.toString();
-// mylist.insert('C');
-// mylist.toString();
-
-// //search the array, 1st should be true, 2nd false
-// mylist.includes('C');
-// mylist.includes('D');
 
 module.exports = LinkedList;
