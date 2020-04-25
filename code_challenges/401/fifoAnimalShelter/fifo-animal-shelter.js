@@ -1,5 +1,7 @@
 'use strict';
 
+const Animal = require('./animal.js');
+
 class Node {
   constructor(val) {
     this.val = val;
@@ -14,35 +16,74 @@ class AnimalShelter {
   }
 
   enqueue(animal) {
-    let newAnimal = new Node(animal);
-    if(this.isempty()) {
-      this.front = newAnimal;
-      this.rear = newAnimal;
+    let newNode = new Node(animal);
+    if(!this.front && !this.rear){
+      this.front = newNode;
+      this.rear = newNode;
       return;
     }
-    this.front.next = newAnimal;
-    this.front = newAnimal;
-    return newAnimal;
+
+    // if (this.front === this.rear) {
+    //   this.rear = newNode;
+    //   this.front.necxt = newNode;
+    // }
+
+    // let tempRear = this.rear;
+
+    this.rear.next = newNode;
+    this.rear = newNode
+
+    // if(this.isempty()) {
+    //   this.front = newAnimal;
+    //   this.rear = newAnimal;
+    //   return;
+    // }
+    // this.rear.next = newAnimal;
+    // this.rear = newAnimal;
+    // return newAnimal;
   }
 
-  dequeue () {
-    let nodeToDequeue = this.front;
-    if (this.isempty()) {
-      throw 'Exception';
+  dequeue (pref) {
+    //traversal is always O(n)
+    //start @ front, traverse until
+    if (!pref === 'dog' || !pref ==='cat' ) return null;
+
+    let currentNode = this.front;
+    let prevNode = null;
+
+
+    while (currentNode) {
+      let animal = currentNode.val;
+
+      if (animal.species === pref) {
+        if (!prevNode) {
+          let dequeuedNode = currentNode;
+          this.front = currentNode.next;
+          dequeuedNode.next = null;
+          return currentNode;
+        }
+        prevNode.next = currentNode.next;
+
+        if(!currentNode.next)
+          this.rear = prevNode;
+
+        currentNode.next = null;
+        return currentNode;
+      }
+      prevNode = currentNode;
+      currentNode = currentNode.next;
     }
-    this.front = this.front.next;
-    nodeToDequeue.next = null;
-    this.rear = null;
-    return nodeToDequeue;
+
+    return null;
   }
 
-  isempty () {
-    if(!this.front && !this.rear) {
-      return true;
-    }else{
-      return false;
-    }
-  }
+//   isempty () {
+//     if(!this.front && !this.rear) {
+//       return true;
+//     }else{
+//       return false;
+//     }
+//   }
 }
 
 
@@ -59,6 +100,14 @@ console.log('LIST', myList);
 myList.dequeue();
 console.log('LIST', myList);
 
+let fido = new Animal.Dog('fido');
+AnimalShelter.enqueue(fido)
+console.log(fido);
+console.log('SHELTER', AnimalShelter);
 
+let felix = new Animal.Cat('felix');
+AnimalShelter.enqueue(felix)
+console.log(felix);
+console.log('SHELTER', AnimalShelter);
 
 module.exports = AnimalShelter;
