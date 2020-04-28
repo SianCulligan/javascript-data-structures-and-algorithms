@@ -1,6 +1,6 @@
 'use strict';
 
-const Animal = require('./animal.js');
+// const Animal = require('./animal.js');
 
 class Node {
   constructor(val) {
@@ -87,27 +87,27 @@ class AnimalShelter {
 }
 
 
-const myList = new AnimalShelter;
+// const myList = new AnimalShelter;
 
-myList.enqueue('1');
-console.log('LIST', myList);
-myList.enqueue('2');
-console.log('LIST', myList);
-myList.enqueue('3');
-console.log('LIST', myList);
-myList.enqueue('4');
-console.log('LIST', myList);
-myList.dequeue();
-console.log('LIST', myList);
+// myList.enqueue('1');
+// console.log('LIST', myList);
+// myList.enqueue('2');
+// console.log('LIST', myList);
+// myList.enqueue('3');
+// console.log('LIST', myList);
+// myList.enqueue('4');
+// console.log('LIST', myList);
+// myList.dequeue();
+// console.log('LIST', myList);
 
-let fido = new Animal.Dog('fido');
-AnimalShelter.enqueue(fido)
-console.log(fido);
-console.log('SHELTER', AnimalShelter);
+// let fido = new Dog('fido');
+// AnimalShelter.enqueue(fido)
+// console.log(fido);
+// console.log('SHELTER', AnimalShelter);
 
-let felix = new Animal.Cat('felix');
-AnimalShelter.enqueue(felix)
-console.log(felix);
-console.log('SHELTER', AnimalShelter);
+// let felix = new Cat('felix');
+// AnimalShelter.enqueue(felix)
+// console.log(felix);
+// console.log('SHELTER', AnimalShelter);
 
 module.exports = AnimalShelter;
