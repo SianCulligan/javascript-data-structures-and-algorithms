@@ -1,0 +1,17 @@
+{
+  "name": "multibracketvalidation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "multi-bracket-validation.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.4.0"
+  }
+}
