@@ -1,7 +1,7 @@
 # Table of Contents
 
 ## Multi Bracket Validation Function
-
+- [Pull request](https://github.com/SianCulligan/data-structures-and-algorithms/pull/41)
 ### Challenge
 Write a multi bracket validation function that takes a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced.
 
