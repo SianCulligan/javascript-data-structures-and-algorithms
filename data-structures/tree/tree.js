@@ -1,9 +1,5 @@
 'use strict';
 
-let stack = require('../../code_challenges/401/stacksAndQueues/stacks.js');
-
-let queue = require('../../code_challenges/401/stacksAndQueues/queue.js');
-
 class Node {
   constructor (val, right, left) {
     this.val = val;
@@ -18,10 +14,11 @@ class BinaryTree {
   }
 
   // all are depth first searches, all realate to the root
+  //most of the time, the recurisive solution is simpler for trees
 
   //root first
   preOrder (root = this.root) {
-    //most of the time, the recurisive solution is simpler for trees
+
     if (!root) return;
 
     let rootArr = [];
@@ -55,10 +52,10 @@ class BinaryTree {
     rootArr.push(root.val);
 
     if (root.left) {
-      leftArr = this.preOrder(root.left);
+      leftArr = this.inOrder(root.left);
     }
     if (root.right) {
-      rightArr = this.preOrder(root.right);
+      rightArr = this.inOrder(root.right);
     }
 
     rootArr = [...leftArr, ...rootArr, ...rightArr];
@@ -77,10 +74,10 @@ class BinaryTree {
     rootArr.push(root.val);
 
     if (root.left) {
-      leftArr = this.preOrder(root.left);
+      leftArr = this.postOrder(root.left);
     }
     if (root.right) {
-      rightArr = this.preOrder(root.right);
+      rightArr = this.postOrder(root.right);
     }
 
     rootArr = [...leftArr, ...rightArr, ...rootArr];
@@ -95,32 +92,47 @@ class BinarySearchTree extends BinaryTree {
   }
 
   add (val) {
-    try {
-      console.log ('Add function');
-      let insertNode = new Node(val);
-      insertNode.right = this.root;
-      this.root = insertNode;
-    } catch (e) {
-      console.log(`Error: Add function`);
+    // big (OlogN)
+
+    if (!this.root) {
+      this.root = new Node(val);
+      return;
+    }
+
+    let currentNode = this.root;
+
+    while (currentNode) {
+      if (currentNode.val > val) {
+        if(!currentNode.left) {
+          currentNode.left = new Node(val);
+          return;
+        }
+        else currentNode = currentNode.left;
+      }
+
+      else if (currentNode.val < val) {
+        if(!currentNode.right) {
+          currentNode.right = new Node(val);
+          return;
+        }
+        else currentNode = currentNode.right;
+      }
+      else if (currentNode.val === val) return;
     }
   }
 
   contains (val) {
-    // let myTree = new BinaryTree;
-    // myTree.enqueue(val);
-    // while (!myTree.isempty()) {
-    //   let currentNode = myTree.front;
-    //   myTree.dequeue();
-    //   if(currentNode.left){
-    //     myTree.enqueue(currentNode.left);
-    //   }
-    //   if(currentNode.right){
-    //     myTree.enqueue(currentNode.right);
-    //   }
-    // }
 
+    let currentNode = this.root;
 
+    while (currentNode) {
+      if(currentNode.val > val) currentNode = currentNode.left;
+      else if ( currentNode.val < val) currentNode = currentNode.right;
+      else if (currentNode.val === val) return true;
+    }
+    return false;
   }
+
 
 }
 

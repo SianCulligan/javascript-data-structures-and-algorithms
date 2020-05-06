@@ -11,7 +11,7 @@
 ## Approach & Efficiency
     
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-I tried to approach this problem by starting with exporting the stack & queue classes, then using those existing functions to make building these classes a little easier. 
+I tried to approach this problem by starting with exporting the stack & queue classes, then using those existing functions to make building these classes a little easier. Turns out that was totally wrong - getting a strng understanding of what the first, preOrder function was doing was essential to getting the rest of the functions written.
     
     
 ## Testing
