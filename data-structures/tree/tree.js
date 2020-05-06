@@ -54,21 +54,18 @@ class BinaryTree {
     //   }
     //   console.log(myTree.val);
     // }
-    let output = [];
-    const traverse = (Node) => {
-      if (!Node) {
-        return;
-      }
+    let arr = [];
+    let postOrderSearch = (Node) => {
       if (Node.left) {
-        traverse(Node.left);
+        postOrderSearch(Node.left);
       }
       if (Node.right) {
-        traverse(Node.right);
+        postOrderSearch(Node.right);
       }
-      output.push(Node.value);
+      arr.push(Node.value);
     };
-    traverse(this.root);
-    return output;
+    postOrderSearch(this.root);
+    return arr;
   }
 }
 

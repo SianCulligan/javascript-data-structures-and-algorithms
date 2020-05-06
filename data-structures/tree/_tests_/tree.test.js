@@ -56,7 +56,21 @@ describe('Tests the fuctionality of binary tree functions', () => {
     expect(newArr).toBe([2, 3, 1]);
   });
 
-  it('can successfully add a value to a binary search tree', () => {});
+  it('can successfully add a value to a binary search tree', () => {
+    let myTree = new BinarySearchTree;
+    myTree.root = new Node(15);
+    myTree.root.left = new Node(8);
+    myTree.root.left.left = new Node(4);
+    myTree.root.left.right = new Node(12);
+    myTree.root.right = new Node(20);
+    myTree.root.right.right = new Node(22);
+    
+    myTree.add(6);
+    myTree.add(14);
+    myTree.add(19);
+    myTree.add(16);
+
+  });
 
   it('can search a binary search tree for a value and get the correct true/false result', () => {});
 
