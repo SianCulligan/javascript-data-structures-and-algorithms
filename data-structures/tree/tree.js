@@ -13,65 +13,85 @@ class Node {
 }
 
 class BinaryTree {
-  constructor (root) {
+  constructor () {
     this.root = null;
   }
 
   // all are depth first searches, all realate to the root
 
   //root first
-  preOrder () {
-    let myTree = new BinaryTree;
+  preOrder (root = this.root) {
+    //most of the time, the recurisive solution is simpler for trees
+    if (!root) return;
 
-    console.log(myTree.val);
-    if (myTree.left) {
-      preOrder(myTree.left);
-      if(myTree.right) {
-        preOrder(myTree.right);
-      }
+    let rootArr = [];
+    let leftArr = [];
+    let rightArr = [];
+
+    console.log(root.val);
+
+    rootArr.push(root.val);
+
+    if (root.left) {
+      leftArr = this.preOrder(root.left);
     }
+    if (root.right) {
+      rightArr = this.preOrder(root.right);
+    }
+
+    rootArr = [...rootArr, ...leftArr, ...rightArr];
+
+    return rootArr;
   }
 
   //root middle
-  inOrder () {
-    let myTree = new BinaryTree;
-    if (myTree.left) {
-      inOrder(myTree.left);
-      console.log(myTree.val);
-      if(myTree.right) {
-        inOrder(myTree.right);
-      }
+  inOrder (root = this.root) {
+    if (!root) return;
+
+    let rootArr = [];
+    let leftArr = [];
+    let rightArr = [];
+
+    rootArr.push(root.val);
+
+    if (root.left) {
+      leftArr = this.preOrder(root.left);
     }
+    if (root.right) {
+      rightArr = this.preOrder(root.right);
+    }
+
+    rootArr = [...leftArr, ...rootArr, ...rightArr];
+
+    return rootArr;
   }
 
   //root last
-  postOrder () {
-    // let myTree = new BinaryTree;
-    // if (myTree.left) {
-    //   postOrder(myTree.left);
-    //   if(myTree.right) {
-    //     postOrder(myTree.right);
-    //   }
-    //   console.log(myTree.val);
-    // }
-    let arr = [];
-    let postOrderSearch = (Node) => {
-      if (Node.left) {
-        postOrderSearch(Node.left);
-      }
-      if (Node.right) {
-        postOrderSearch(Node.right);
-      }
-      arr.push(Node.value);
-    };
-    postOrderSearch(this.root);
-    return arr;
+  postOrder (root = this.root) {
+    if (!root) return;
+
+    let rootArr = [];
+    let leftArr = [];
+    let rightArr = [];
+
+    rootArr.push(root.val);
+
+    if (root.left) {
+      leftArr = this.preOrder(root.left);
+    }
+    if (root.right) {
+      rightArr = this.preOrder(root.right);
+    }
+
+    rootArr = [...leftArr, ...rightArr, ...rootArr];
+
+    return rootArr;
   }
 }
 
 class BinarySearchTree extends BinaryTree {
-  constructor (root) {
-    super (root);
+  constructor () {
+    super ();
   }
 
   add (val) {
@@ -98,8 +118,8 @@ class BinarySearchTree extends BinaryTree {
     //     myTree.enqueue(currentNode.right);
     //   }
     // }
-  
-  
+
+
   }
 
 }

@@ -8,7 +8,8 @@ describe('Tests the fuctionality of binary tree functions', () => {
 
   it('can successfully instantiate an empty tree', () => {      
     let myTree = new BinaryTree();
-    expect(myTree).toEqual({ root: null })});
+    expect(myTree).toEqual({ root: null });
+  });
 
   it('can successfully instantiate a tree and add a single root node', () => {
     let myTree = new BinaryTree();
@@ -70,8 +71,23 @@ describe('Tests the fuctionality of binary tree functions', () => {
     myTree.add(19);
     myTree.add(16);
 
+    let traversalResults = myTree.preOrder();
+    expect(traversalResults).toBe([15, 8, 4, 6, 12, 14, 20, 19, 16, 22]);
+
   });
 
-  it('can search a binary search tree for a value and get the correct true/false result', () => {});
+  it('can search a binary search tree for a value and get the correct true/false result', () => {
+    let myTree = new BinarySearchTree;
+    myTree.root = new Node(15);
+    myTree.root.left = new Node(8);
+    myTree.root.left.left = new Node(4);
+    myTree.root.left.right = new Node(12);
+    myTree.root.right = new Node(20);
+    myTree.root.right.right = new Node(22);
+
+    expect(myTree.contains(4)).toBeTruthy;
+    expect(myTree.contains(44)).toBeFalsey;
+
+  });
 
 });
