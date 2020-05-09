@@ -16,5 +16,5 @@ I took code from my original binary tree lab to form a tree constructor. I then 
 
 ## Solution
 <!-- Embedded whiteboard image -->
-
+- [FizzBuzz Tree Code](fizz-buzz-tree.js)
 ![White board solution](./assets/fbtree.png)
