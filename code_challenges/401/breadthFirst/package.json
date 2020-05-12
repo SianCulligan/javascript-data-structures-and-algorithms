@@ -1,0 +1,17 @@
+{
+  "name": "breadthfirst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "treeExtend.js",
+  "scripts": {
+    "start": "node treeExtend.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}
