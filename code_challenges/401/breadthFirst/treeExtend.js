@@ -1,6 +1,5 @@
 'use strict';
 
-let Queue = require('../stacksAndQueues/queue.js');
 
 class Node {
   constructor (val) {
@@ -10,153 +9,72 @@ class Node {
   }
 }
 
+class QNode {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.front = null;
+    this.rear = null;
+  }
+
+  enqueue (val) {
+    let newNode = new QNode(val);
+    if (!this.front && !this.rear) {
+      this.front = newNode;
+      this.rear = newNode;
+      return;
+    }
+    this.rear.next = newNode;
+    this.rear = newNode;
+  }
+
+  dequeue () {
+    if (!this.front && !this.rear) {
+      return;
+    }
+    let oldFront = this.front;
+    this.front = this.front.next;
+
+    oldFront.next = null;
+    return oldFront.val;
+
+  }
+}
+
+
 class BinaryTree {
   constructor () {
     this.root = null;
   }
 
-  // all are depth first searches, all realate to the root
-  //most of the time, the recurisive solution is simpler for trees
-
-  //root first
-  preOrder (root = this.root) {
-
-    if (!root) return;
-
-    let rootArr = [];
-    let leftArr = [];
-    let rightArr = [];
-
-    console.log(root.val);
-
-    rootArr.push(root.val);
-
-    if (root.left) {
-      leftArr = this.preOrder(root.left);
-    }
-    if (root.right) {
-      rightArr = this.preOrder(root.right);
-    }
-
-    rootArr = [...rootArr, ...leftArr, ...rightArr];
-
-    return rootArr;
-  }
-
-  //root middle
-  inOrder (root = this.root) {
-    if (!root) return;
-
-    let rootArr = [];
-    let leftArr = [];
-    let rightArr = [];
-
-    rootArr.push(root.val);
-
-    if (root.left) {
-      leftArr = this.inOrder(root.left);
-    }
-    if (root.right) {
-      rightArr = this.inOrder(root.right);
-    }
-
-    rootArr = [...leftArr, ...rootArr, ...rightArr];
-
-    return rootArr;
-  }
-
-  //root last
-  postOrder (root = this.root) {
-    if (!root) return;
-
-    let rootArr = [];
-    let leftArr = [];
-    let rightArr = [];
-
-    rootArr.push(root.val);
-
-    if (root.left) {
-      leftArr = this.postOrder(root.left);
-    }
-    if (root.right) {
-      rightArr = this.postOrder(root.right);
-    }
-
-    rootArr = [...leftArr, ...rightArr, ...rootArr];
-
-    return rootArr;
-  }
-
-
-}
-
-class BinarySearchTree extends BinaryTree {
-  constructor () {
-    super ();
-  }
-
-  add (val) {
-    // big (OlogN)
-
-    if (!this.root) {
-      this.root = new Node(val);
-      return;
-    }
-
-    let currentNode = this.root;
-
-    while (currentNode) {
-      if (currentNode.val > val) {
-        if(!currentNode.left) {
-          currentNode.left = new Node(val);
-          return;
-        }
-        else currentNode = currentNode.left;
-      }
-
-      else if (currentNode.val < val) {
-        if(!currentNode.right) {
-          currentNode.right = new Node(val);
-          return;
-        }
-        else currentNode = currentNode.right;
-      }
-      else if (currentNode.val === val) return;
-    }
-  }
-
-  contains (val) {
-
-    let currentNode = this.root;
-
-    while (currentNode) {
-      if(currentNode.val > val) currentNode = currentNode.left;
-      else if ( currentNode.val < val) currentNode = currentNode.right;
-      else if (currentNode.val === val) return true;
-    }
-    return false;
-  }
-
-  breadthFirst () {
-    let newQueue = new Queue();
+  breadthFirst (root = this.root) {
     let newArr = [];
-    let currentNode = this.root;
-    newQueue.enqueue(currentNode);
     if(this.root === null ) {
       return null;
     }
-    while (newQueue.length) {
-      currentNode = newQueue.shift();
-      newArr.enqueue(currentNode.val);
-      if(currentNode.left) {
-        newQueue.enqueue(currentNode.left);
+
+    let newQueue = new Queue();
+    newQueue.enqueue(root);
+
+    while (newQueue.front) {
+      if(newQueue.front.val.left) {
+        newQueue.enqueue(newQueue.front.val.left);
       }
-      if(currentNode.right) {
-        newQueue.enqueue(currentNode.right);
+      if(newQueue.front.val.right) {
+        newQueue.enqueue(newQueue.front.val.right);
       }
+      let removedItem = newQueue.dequeue();
+      newArr.push(removedItem.val);
     }
     return newArr;
   }
 }
 
-module.exports = { Node, BinaryTree, BinarySearchTree };
+
+
+module.exports = { Node, QNode, BinaryTree };

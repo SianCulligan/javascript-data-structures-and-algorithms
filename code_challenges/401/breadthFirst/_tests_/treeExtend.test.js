@@ -1,30 +1,29 @@
 'use strict';
 
 // let {BinaryTree} = require('../treeExtend.js');
-let {BinarySearchTree} = require('../treeExtend.js');
+const BinaryTree = require('../treeExtend.js').BinaryTree;
+const Node = require('../treeExtend.js').Node;
 
-const testTree = new BinarySearchTree();
-testTree.add(2);
-testTree.add(7);
-testTree.add(5);
-testTree.add(2);
-testTree.add(6);
-testTree.add(5);
-testTree.add(11);
-testTree.add(5);
-testTree.add(9);
-testTree.add(4);
+
+let testTree = new BinaryTree();
+testTree.root = new Node (2);
+testTree.root.left = new Node(7);
+testTree.root.right = new Node(5);
+testTree.root.left.left = new Node(2);
+testTree.root.left.right = new Node(6);
+testTree.root.right.left = new Node(5);
+
 
 
 describe('Tests the fuctionality of breadth first function', () => {
   it('returns a list of the values in the tree in the order they were encountered', () => {
     let str = testTree.breadthFirst();
     // console.log('RESULTS OF BF FUNCTION', str);
-    expect(str).toBe([2, 7, 5 ,2, 6, 5, 11, 5, 9, 4]);
+    expect(str).toStrictEqual([2, 7, 5 ,2, 6, 5]);
   })
 
   it('edge case, can traverse an empty tree', () => {
-    let nullTree = new BinarySearchTree();
+    let nullTree = new BinaryTree();
     let str = nullTree.breadthFirst();
     // console.log('SHOULD BE NULL', str);
     expect(str).toEqual(null);
