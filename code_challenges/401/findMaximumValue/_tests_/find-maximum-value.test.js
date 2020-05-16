@@ -1,6 +1,5 @@
 'use strict';
 
-// let {BinaryTree} = require('../treeExtend.js');
 const BinaryTree = require('../find-maximum-value.js').BinaryTree;
 const Node = require('../find-maximum-value.js').Node;
 
@@ -21,8 +20,7 @@ describe('Tests the fuctionality of max value funciton', () => {
 
   it('edge case, can traverse an empty tree', () => {
     let nullTree = new BinaryTree();
-    let str = nullTree.breadthFirst();
-    console.log('SHOULD BE NULL', str);
+    let str = nullTree.findMaximumValue();
     expect(str).toEqual(null);
   })
 });
