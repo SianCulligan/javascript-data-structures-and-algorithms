@@ -6,66 +6,62 @@ class HashTable {
     this.map = new Array(initialSize);
   }
 
-  add (key, value) {
+  add(key, value) {
     let addIndex = this.hash(key);
 
     //build a check to avoid collisions
     if (this.map[addIndex]) {
       let current = this.map[addIndex];
 
-
-      while(current.next) {
+      while (current.next) {
         if (current.key === key) {
-          if (current.val === value) {
-            return;
-          }
-          if (current.val.length) {
-            current.val.push(value);
-          } else {
-            current.val = [current.val, value];
-          }
+          if (current.val === value) return;
+          if (current.val.length) current.val.push(value);
+          else current.val = [current.val, value];
           return;
         }
         current = current.next;
+        console.log('loop');
       }
+
       current.next = {
         key: key,
         val: value,
       };
-    }
-
-    else
+    } else
       this.map[addIndex] = {
         key: key,
         val: value,
-      }
+      };
   }
 
-  get (key) {
-    let ind = this.hash(key);
+  get(key) {
+    let indexValue = this.hash(key);
 
-    if(this.map[ind]) {
-      let current = this.map[ind]
+    if (this.map[indexValue]) {
+      let current = this.map[indexValue];
 
       while (current) {
-        if(current.key === key) return current.val;
+        if (current.key === key) return current.val;
         current = current.next;
       }
     }
+
     return null;
   }
 
-  contains (key) {
+  contains(key) {
     let val = this.get(key);
-    if(!val) return false;
+    if (!val) return false;
     else return true;
   }
 
-  hash (key) {
+  hash(key) {
     let sum = 0;
-    for (let i = 0; i < key.lenth; i++) {
+    for (let i in key) {
       sum += key.charCodeAt(i);
     }
+
     sum *= 599;
     sum %= this.map.length;
     return sum;

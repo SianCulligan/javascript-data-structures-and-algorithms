@@ -4,8 +4,12 @@
   "description": "<!-- Short summary or background information -->",
   "main": "hashtable.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage --verbose",
+    "watch": "jest --watchAll"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
 }
