@@ -12,25 +12,25 @@ function hash(key, size) {
 
 
 function repeatedWord(str) {
-  let words = str.split(/[., -!?]/g);
-  let hashmap = new Array(words.length * 5);
+  let splitWords = str.split(/[., -!?]/g);
+  let hashTable = new Array(splitWords.length * 5);
 
-  for (let i = 0; i < words.length; i++) {
-    if (words[i] === '') continue;
-    let indx = hash(words[i].toLowerCase(), hashmap.length);
-    if (hashmap[indx]) {
-      let item = hashmap[indx];
+  for (let i = 0; i < splitWords.length; i++) {
+    if (splitWords[i] === '') continue;
+    let indx = hash(splitWords[i].toLowerCase(), hashTable.length);
+    if (hashTable[indx]) {
+      let item = hashTable[indx];
       while (item) {
-        if (item.key === words[i].toLowerCase()) return item.key;
+        if (item.key === splitWords[i].toLowerCase()) return item.key;
         item = item.next;
       }
 
-      hashmap[indx] = {
-        key: words[i].toLowerCase(),
-        next: hashmap[indx],
+      hashTable[indx] = {
+        key: splitWords[i].toLowerCase(),
+        next: hashTable[indx],
       };
     } else {
-      hashmap[indx] = { key: words[i].toLowerCase() };
+      hashTable[indx] = { key: splitWords[i].toLowerCase() };
     }
   }
   return null;
