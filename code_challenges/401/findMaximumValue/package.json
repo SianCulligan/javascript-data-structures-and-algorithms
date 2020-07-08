@@ -1,0 +1,17 @@
+{
+  "name": "findmaximumvalue",
+  "version": "1.0.0",
+  "description": "Use a breadth first search to find the maximum value in a binary tree",
+  "main": "find-maximum-value.js",
+  "scripts": {
+    "start": "node find-maximum-value.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}
