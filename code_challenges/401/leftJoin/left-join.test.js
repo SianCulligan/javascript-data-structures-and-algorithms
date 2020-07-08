@@ -1,10 +1,11 @@
 'use strict';
 
 const leftJoin = require('./left-join.js');
-const hash = require('../hashtable/');
+const HashTable = require('../hashtable/hashtable.js');
 
+//testing incomplete - using hashtables tests as reference, but I don't know how to implement the 2 together
 describe ('Testing the let-join function', () => {
-  const map = new HashTable(200);
+  const map = new HashTable();
 
   it('Adds a key/value to your hash table', () => {
     map.add('dog', 'the best creature');
