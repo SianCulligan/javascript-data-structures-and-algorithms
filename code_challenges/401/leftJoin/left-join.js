@@ -1,8 +1,9 @@
 'use strict';
 
+
 function leftJoin (hashtableOne, hashtableTwo) {
-  if (!hashtableOne.size && !hashtableTwo.size) {
-    return [];
+  if (!hashtableOne && !hashtableTwo) {
+    return 'null';
   }
   let results = [];
   for (let [key, value] of hashtableOne) {
