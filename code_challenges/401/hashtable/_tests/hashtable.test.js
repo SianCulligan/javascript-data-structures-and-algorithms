@@ -1,9 +1,8 @@
 'use strict';
 
-const leftJoin = require('./left-join.js');
-const hash = require('../hashtable/');
+const HashTable = require('../hashtable.js');
 
-describe ('Testing the let-join function', () => {
+describe ('Hashtable tests', () => {
   const map = new HashTable(200);
 
   it('Adds a key/value to your hash table', () => {
@@ -29,3 +28,7 @@ describe ('Testing the let-join function', () => {
   });
 
 });
+
+
+
+

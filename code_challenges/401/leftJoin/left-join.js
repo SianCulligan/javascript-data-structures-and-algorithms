@@ -11,6 +11,7 @@ function leftJoin (hashtableOne, hashtableTwo) {
     console.log('Status of Join: ', join);
     join.push(key, value);
     hashtableTwo.has(key) ? join.push(hashtableTwo.get(key)) : join.push(null);
+    //The has() function of the map object accepts a key in string format and returns a boolean value of true if the specified key exists. Otherwise, the function returns false.
     results.push(join);
   }
   return results;
