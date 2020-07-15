@@ -1,22 +1,26 @@
-# Linked List Implementation
-Linked-list.js file holds the list constructor
-Linked-list.test.js holds the tests
+# Implementation: Graphs
+graph.js file holds the list constructor
+grapg.test.js holds the tests
     
 ## Links
-- [Open Pull Request](https://github.com/SianCulligan/data-structures-and-algorithms/pull/35)
+- [Open Pull Request](https://github.com/SianCulligan/data-structures-and-algorithms/pull/50)
 
     
 ## Challenge
-- Create a linked list that has nodes that are linked together by reference (val, next, prev), starting at the head.
+- Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
+- AddNode()
+- AddEdge()
+- GetNodes()
+- GetNeighbors()
+- Size()
     
 ## Approach & Efficiency
-
-- Insert(): o(1)
-This function is able to add in nodes without transversing the entire list.
-- Includes(): o(n)
-- toString():o(n)
-Both the includes and toString have to transvers the list, making the big O = O(n).
+- AddNode() - o(1)
+- AddEdge()- o(1)
+- GetNodes()- o(n)
+- GetNeighbors()- o(n)
+- Size()- o(n)
     
 ## Testing
 <!-- Description of how to run your tests -->
-Use `npm test linked-list.test.js` to run tests
+Use `npm test graph.test.js` to run tests
