@@ -15,3 +15,7 @@ breadth-first.test.js holds the tests
 ## Testing
 <!-- Description of how to run your tests -->
 Use `npm test breadth-first.test.js` to run tests
+
+## Whiteboard
+
+[Whiteboard Solution](./assets/bfgraph.png)
