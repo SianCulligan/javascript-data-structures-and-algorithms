@@ -7,7 +7,7 @@
 // A graph with only one node and edge can be properly returned
 // An empty graph properly returns null
 
-const Graph = require('../graph');
+const Graph = require('../breadth-first');
 
 describe('Testing fnctionality of Graph', () => {
   it('Node can be successfully added to the graph & can give me all the nodes', () => {
