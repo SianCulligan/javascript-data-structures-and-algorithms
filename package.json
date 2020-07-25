@@ -1,7 +1,7 @@
 {
   "name": "3-code-challenges",
   "version": "1.0.0",
-  "description": "",
+  "description": "Code Challenges 301 & 401",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --verbose",
@@ -11,6 +11,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "jest": "^24.1.0"
-  }
+    "jest": "^24.9.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SianCulligan/data-structures-and-algorithms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SianCulligan/data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/SianCulligan/data-structures-and-algorithms#readme"
 }
