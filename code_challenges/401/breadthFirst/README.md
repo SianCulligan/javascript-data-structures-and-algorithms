@@ -1,12 +1,21 @@
-# Challenge Summary
-<!-- Short summary or background information -->
-Use a breadth first search to traverse a binary tree
+# Implementation: Graphs
+breadth-first.js file holds the list constructor
+breadth-first.test.js holds the tests
+    
+## Links
+- [Open Pull Request](https://github.com/SianCulligan/data-structures-and-algorithms/pull/60)
 
-## Challenge Description
-- Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
-
-## Efficiency
+    
+## Challenge
+- Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+    
+## Approach & Efficiency
 - O(n)
 
-## Solution
-- [Whiteboard solution](./assets/cc18.png)
+## Testing
+<!-- Description of how to run your tests -->
+Use `npm test breadth-first.test.js` to run tests
+
+## Whiteboard
+
+[Whiteboard Solution](./assets/bfgraph.png)
