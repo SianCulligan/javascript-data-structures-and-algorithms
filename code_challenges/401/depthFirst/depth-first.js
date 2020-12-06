@@ -2,11 +2,11 @@ const Graph = require ('../../../data-structures/graph.js');
 
 
 function depthFirst (vertex){
+  let neighbors = this.getNeighbors(vertex);
   let newArr = [];
   newArr.push(vertex.value);
-  let neighbors = this.getNeighbors(vertex);
 
-  if(neighbors){
+  if ( neighbors ){
     neighbors.forEach( item => {
       if(!newArr.includes(item)){
         newArr.push( item.vertex.value );
